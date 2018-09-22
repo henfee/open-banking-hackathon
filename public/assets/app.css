@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    height: 120vh;
     margin: 0;
     padding: 0;
     background-color: #34a348;
@@ -76,4 +76,5 @@ div.row {
 div.row img {
     /*width: 50px;*/
     border-radius: 15px;
+    margin-bottom: 10px;
 }
