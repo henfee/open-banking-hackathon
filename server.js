@@ -4,13 +4,7 @@ const mongo = require('mongodb').MongoClient;
 const app = express();
 const port = 1993;
 const exphbs = require('express-handlebars');
-
-const makeRequest = require('./makeRequest');
-
-makeRequest({ path: '/open-banking/mtlsTest' })
-    .then( (data) => {
-        console.log(data);
-    });
+const authenticate = require('./authenticate');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -27,6 +21,16 @@ var getCompanies = function(name) {
         });
     });
 };
+
+app.get('/authorize', async (req, res) => {
+
+    const URL = await authenticate();
+    res.redirect(URL);
+});
+
+app.get('/callback', async (req, res) => {
+    res.send("Wassssup");
+});
 
 app.get('/login', async (req, res) => {
     res.render('login', {
