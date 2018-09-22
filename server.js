@@ -1,7 +1,20 @@
 const express = require('express');
+const path = require('path');
 const axios = require('axios');
+const mongo = require('mongodb').MongoClient;
 const app = express();
 const port = 1993;
+
+const exphbs = require('express-handlebars');
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'})); app.set('view engine', 'handlebars');
+app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'ignore', etag: false,
+    extensions: ['htm', 'html'],
+    index: false
+}));
+
+var users = {};
+var ratings = {};
 
 app.get('/', async (req, res) => {
 
@@ -18,5 +31,19 @@ app.get('/', async (req, res) => {
   }
 
 });
+
+var getCompanies = function(name) {
+    mongo.connect('mongodb://10.13.5.54:27017', function(err, db) {
+        var cursor = db.db('hackathon').collection('ratings').find();
+        cursor.each(function(err, doc) {
+            ratings[1] = doc
+        });
+    });
+};
+
+app.get('/login', async (req, res) => {
+    res.render('login');
+});
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
