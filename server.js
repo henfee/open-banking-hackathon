@@ -28,6 +28,7 @@ app.get('/authorize', async (req, res) => {
     res.redirect(URL);
 });
 
+
 app.get('/callback', async (req, res) => {
     res.send("Wassssup");
 });
