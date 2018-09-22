@@ -54,6 +54,7 @@ module.exports = async () => {
     console.log('-------------------');
     console.log('step 2: ', access_token, id_token);
 
+
     const { Data: { PaymentId: PaymentId } } = await rp({
         ...access,
         method: 'POST',
