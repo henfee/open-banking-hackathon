@@ -6,6 +6,7 @@ const access = {
     key: fs.readFileSync('./9605a69a-6c81-459e-8d02-592c9dc9adde.key', 'utf-8'),
 };
 
+
 const ASPSP_FINANCIAL_ID = "0015800001041REAAY";
 const AS_JWK_URI = "https://as.aspsp.ob.forgerock.financial/oauth2/realms/root/realms/openbanking/connect/jwk_uri";
 const AS_authorization_endpoint = "https://matls.as.aspsp.ob.forgerock.financial/oauth2/realms/root/realms/openbanking/authorize"
