@@ -1,0 +1,81 @@
+<header>
+    <img src="/img/logog.png" alt="Good Mark" width="100px"/>
+</header>
+
+<main>
+    <div id="container">
+        <h6 class="title">You've collected</h6>
+        <h6 class="points">points</h6>
+    </div>
+
+    <section id="causes">
+        <h6>This Months Causes</h6>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <h6>Mind</h6>
+                    <img src="/img/mind.jpg" width="100px">
+                </div>
+                <div class="col-sm">
+                    <h6>Shelter</h6>
+                    <img src="/img/shelter.jpg" width="100px">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="outlets">
+        <h6>Your Spend</h6>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">Shop A</div>
+                <div class="col-sm">Shop B</div>
+                <div class="col-sm">Shop C</div>
+                <div class="col-sm">Shop D</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="friends">
+        <h6>Friends</h6>
+    </section>
+</main>
+
+<script>
+    // progressbar.js@1.0.0 version is used
+    // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+
+    var bar = new ProgressBar.Circle(container, {
+        color: '#fff',
+        // This has to be the same size as the maximum width to
+        // prevent clipping
+        strokeWidth: 4,
+        trailWidth: 1,
+        easing: 'easeInOut',
+        duration: 1400,
+        text: {
+            autoStyleContainer: false
+        },
+        from: { color: '#fff', width: 1 },
+        to: { color: '#fff', width: 4 },
+        // Set default step function for all animate calls
+        step: function(state, circle) {
+            circle.path.setAttribute('stroke', state.color);
+            circle.path.setAttribute('stroke-width', state.width);
+
+            var value = Math.round(circle.value() * 367);
+            if (value === 0) {
+                circle.setText('');
+            } else {
+                circle.setText(value);
+            }
+
+        }
+    });
+    bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    bar.text.style.fontSize = '2rem';
+
+    bar.animate(0.67);  // Number from 0.0 to 1.0
+</script>

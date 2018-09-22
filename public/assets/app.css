@@ -1,0 +1,79 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #34a348;
+    background-image: radial-gradient(#38b34c 25%, #38b34c 25%, #2f8b49 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    color: #fafafa;
+}
+
+button#login {
+    background-color: #fafafa;
+    display: block;
+    margin: 200px auto 0 auto;
+}
+
+header {
+    display: block;
+    background-color: #fafafa;
+    height: 75px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+header > img {
+    float: left;
+}
+
+main {
+    text-align: left;
+    padding: 10px;
+}
+
+main > h6 {
+    width: 10px;
+}
+
+main > #container {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+}
+main > div > div.progressbar-text {
+    top: 200px !important;
+}
+
+main > div#container > h6 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+}
+
+main > div#container > h6.title {
+    top: 150px;
+}
+main > div#container > h6.points {
+    top: 220px;
+}
+
+main > section {
+    margin-bottom: 15px;
+}
+
+main > section > h6 {
+    font-weight: bold;
+}
+
+div.row {
+    text-align: center;
+}
+
+div.row img {
+    /*width: 50px;*/
+    border-radius: 15px;
+}
