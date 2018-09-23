@@ -1,3 +1,5 @@
+<button class="login btn btn-default" id="login" onclick="document.location.href='/login'">Login</button>
+
 <header>
     <img src="/img/logo.png" alt="Good Mark" width="100px"/>
 </header>
@@ -9,7 +11,10 @@
     </div>
 
     <section id="causes">
+        <h1 class="text-center">Welcome to GoodMark! </h1>
         <div class="container">
+            <h3 class="text-center">Your Causes</h3>
+            <br>
             <div class="row">
                 <div class="col-sm">
                     <h6>Mind</h6>
@@ -24,44 +29,43 @@
     </section>
 
     <section id="outlets">
-        <h6>Your Spend</h6>
-
-      <table width="100%">
-        <thead>
-          <th width="50%">Account ID</th>
-          <th width="50%">Amount</th>
-        </thead>
-        <tbody>
-          {{#each helpers.data}}
-            <tr>
-              <td> {{this.AccountId}} </td>
-              <td> £{{this.Amount.Amount}} </td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
 
         <div class="container">
+            <h3 class="text-center">Your Spend</h3>
+            <br>
+            <br>
             <div class="row">
                 <div class="col-sm">
-                    <img src="/img/wholefoods.jpg">
+                    <img src="/img/wholefoods.jpg"/>
                     <h6><strong>143 points</strong></h6>
                     <h7>£64.40 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/lush.jpg">
+                    <img src="/img/lush.jpg"/>
                     <h6><strong>64 points</strong></h6>
                     <h7>£35.35 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/newbalance.jpg">
+                    <img src="/img/newbalance.jpg"/>
                     <h6><strong>56 points</strong></h6>
                     <h7>£42.47 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/chillys.jpg">
+                    <img src="/img/chillys.jpg"/>
                     <h6><strong>35 points</strong></h6>
                     <h7>£25.47 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
             <div class="row">
@@ -69,33 +73,45 @@
                     <img src="/img/costa.png">
                     <h6><strong>143 points</strong></h6>
                     <h7>£64.40 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <div class="col-sm">
                     <img src="/img/otherstories.jpg">
                     <h6><strong>64 points</strong></h6>
                     <h7>£35.35 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <div class="col-sm">
                     <img src="/img/waitrose.jpg">
                     <h6><strong>56 points</strong></h6>
                     <h7>£42.47 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <div class="col-sm">
                     <img src="/img/fairtrade.png">
                     <h6><strong>35 points</strong></h6>
                     <h7>£25.47 spent</h6>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="friends">
-        <h6>Friends</h6>
-
         <div class="container">
+          <h3 class="text-center">Friends</h3>
+            <br>
             <div class="row">
                 <div class="col-sm-2">
-                    <img src="/img/jackson.jpg" width="75px">
+                    <img src="/img/jackson.jpg" width="75px" />
                 </div>
                 <div class="col-sm-10">
                     <h6>Hugh</h6>
@@ -104,7 +120,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-2">
-                    <img src="/img/julia.jpg" width="75px">
+                    <img src="/img/julia.jpg" width="75px" />
                 </div>
                 <div class="col-sm-10">
                     <h6>Julia</h6>
@@ -113,13 +129,44 @@
             </div>
             <div class="row">
                 <div class="col-sm-2">
-                    <img src="/img/tamran.jpg" width="75px">
+                    <img src="/img/tamran.jpg" width="75px" />
                 </div>
                 <div class="col-sm-10">
                     <h6>Tamran</h6>
                     <div id="tamran"></div>
                 </div>
             </div>
+            <br>
+      </div>
+    </section>
+
+    <section id="transactions">
+      <div class="container">
+        <h3 class="text-center">Transactions</h3>
+        <table class="table" width="100%">
+          <thead>
+            <th>Good Mark</th>
+            <th>Date</th>
+            <th>Merchant</th>
+            <th>Amount</th>
+          </thead>
+          <tbody>
+            {{#each helpers.data}}
+              <tr>
+                <td>
+                  {{#if this.goodMark}}
+                    <img src="/img/logo.png" alt="Good Mark" width="100px"/>
+                  {{^}}
+                    <span></span>
+                  {{/if}}
+                </td>
+                <td> {{this.BookingDateTime}} </td>
+                <td> - </td>
+                <td> £{{this.Amount.Amount}} </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
         </div>
     </section>
 </main>
