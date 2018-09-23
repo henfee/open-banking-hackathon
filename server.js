@@ -27,12 +27,6 @@ app.get('/authorize', async (req, res) => {
     res.redirect(URL);
 });
 
-app.get('/transactions', async (req, res) => {
-
-    const data = await getDataz();
-
-    res.send(data);
-});
 
 app.get('/exchangeCode', async (req, res) => {
     const { code, id_token, state } = req.query;
@@ -40,7 +34,7 @@ app.get('/exchangeCode', async (req, res) => {
 
     await exchangeCode(code);
 
-    res.redirect('/transactions');
+    res.redirect('/app');
 });
 
 
@@ -57,12 +51,19 @@ app.get('/login', async (req, res) => {
 )});
 
 app.get('/app', async (req, res) => {
+
+    const { Data: { Transaction }} = await getDataz();
+
+    console.log(Transaction)
+
     res.render('app', {
             helpers: {
-                title: function () { return 'Good Mark.'; }
+                title: function () { return 'Good Mark.'; },
+                data: () => Transaction
             }
         }
-    )});
+    )
+});
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

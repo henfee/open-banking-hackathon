@@ -35,7 +35,8 @@ module.exports = {
                 'x-idempotency-key': 'FRESCO.21302.GFX.20',
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${access_token_with_consent}`
-            }
+            },
+            json: true
         });
 
         console.log('-------------------');
