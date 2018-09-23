@@ -5,7 +5,7 @@
 </header>
 
 <main>
-    <div id="container">
+    <div id="container" class="points-container">
         <h6 class="title">You've collected</h6>
         <h6 class="points">points</h6>
     </div>
@@ -18,11 +18,11 @@
             <div class="row">
                 <div class="col-sm">
                     <h6>Mind</h6>
-                    <button id="mind" class="charity-donate" onclick="console.log('mind')"></button>
+                    <button id="mind" class="charity-donate" onclick="decreasePoints()"></button>
                 </div>
                 <div class="col-sm">
                     <h6>Shelter</h6>
-                    <button id="shelter" class="charity-donate" onclick="console.log('shelter')"></button>
+                    <button id="shelter" class="charity-donate" onclick="decreasePoints()"></button>
                 </div>
             </div>
         </div>
@@ -38,15 +38,7 @@
                 <div class="col-sm">
                     <img src="/img/wholefoods.jpg"/>
                     <h6><strong>143 points</strong></h6>
-                    <h7>£{{{ helpers.vendors }}} spent</h6>
-                </div>
-                <div class="col-sm">
-                    <img src="/img/wholefoods.jpg"/>
-                    <h6><strong>143 points</strong></h6>
-                    <h7>£64.40 spent</h6>
-                    <br>
-                    <br>
-                    <br>
+                    <h7>£{{{ helpers.wholefoods }}} spent</h6>
                 </div>
                 <div class="col-sm">
                     <img src="/img/lush.jpg"/>
@@ -177,6 +169,7 @@
 </main>
 
 <script>
+    var currentProgress = 0.67;
     var user = new ProgressBar.Circle(container, {
         color: '#fff',
         strokeWidth: 4,
@@ -203,10 +196,16 @@
     });
     user.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     user.text.style.fontSize = '2rem';
-    user.animate(0.67);  // Number from 0.0 to 1.0
+    user.animate(currentProgress);  // Number from 0.0 to 1.0
 
     new ProgressBar.Line('#hugh', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('450 points')}}).animate(0.32);
     new ProgressBar.Line('#julia', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('873 points')}}).animate(0.87);
     new ProgressBar.Line('#tamran', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('628 points')}}).animate(0.51);
-    console.log({{{ helpers.vendors }}})
+
+    var decreasePoints = function() {
+        var el = document.querySelector(".points-container .progressbar-text");
+        el.innerHTML = el.innerHTML -10;
+        currentProgress -= 0.02;
+        user.animate(currentProgress)
+    }
 </script>

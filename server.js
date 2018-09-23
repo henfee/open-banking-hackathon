@@ -84,7 +84,7 @@ app.get('/app', async (req, res) => {
             helpers: {
                 title: function () { return 'Good Mark.'; },
                 data: () => Transaction,
-                vendors: () => vendors
+                wholefoods: () => vendors.wholefoods,
             }
         }
     )
