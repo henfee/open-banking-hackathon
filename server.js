@@ -53,8 +53,13 @@ app.get('/login', async (req, res) => {
 app.get('/app', async (req, res) => {
 
     const { Data: { Transaction }} = await getDataz();
-
-    console.log(Transaction)
+    var vendors = {}
+    Transaction.forEach(function(t) { vendors[t.MerchantDetails.MerchantName] = 0 });
+    Transaction.forEach(function(t) {
+        console.log(parseFloat(t.Amount.Amount))
+        vendors[t.MerchantDetails.MerchantName] += parseFloat(t.Amount.Amount)
+    });
+    console.log(vendors)
 
     res.render('app', {
             helpers: {
