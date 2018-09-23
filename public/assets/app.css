@@ -1,4 +1,5 @@
 body {
+    height: 300vh;
     margin: 0;
     padding: 0;
     background-color: #34a348;
@@ -67,7 +68,6 @@ main > section {
 }
 
 main > section#causes {
-    height: 140px;
     margin-top: -25px;
     margin-bottom: 40px;
 }
@@ -79,8 +79,8 @@ main > section#outlets, main > section#transactions  {
 }
 
 main > section#outlets > div > div > div.col-sm > img {
-    height: 50px;
-    width: 50px
+    height: 100px;
+    width: 100px;
 }
 
 main > section#friends > div.container > div.row {
@@ -104,8 +104,8 @@ button.charity-donate {
     background-color: transparent;
     outline: none;
     border-radius: 8px;
-    height: 90px;
-    width: 90px;
+    height: 150px;
+    width: 150px;
     background-size: contain;
 }
 
@@ -141,3 +141,17 @@ div.row img {
 #hugh > .progressbar-text { left: 45% !important; }
 #julia > .progressbar-text { left: 95% !important; }
 #tamran > .progressbar-text { left: 65% !important; }
+
+.login {
+  background-color: #fafafa;
+  display: block;
+  width: 150px;
+  font-weight: bolder;
+  margin: 200px auto 0 auto;
+  height: 50px;
+  text-transform: capitalize;
+  box-shadow: 1px 2px 7px black;
+  position: absolute;
+  right: 5px;
+  top: -195px;
+}
