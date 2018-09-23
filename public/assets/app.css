@@ -19,10 +19,10 @@ button#login {
 
 header {
     display: block;
-    background-color: #fafafa;
     height: 75px;
     padding-left: 0px;
     margin-left: 0px;
+    margin-bottom: -40px;
 }
 
 header > img {
@@ -31,7 +31,7 @@ header > img {
 
 main {
     text-align: left;
-    padding: 10px;
+    padding: 0px;
 }
 
 main > h6 {
@@ -43,8 +43,9 @@ main > #container {
     height: 200px;
     margin: 10px auto;
 }
+
 main > div > div.progressbar-text {
-    top: 200px !important;
+    top: 155px !important;
 }
 
 main > div#container > h6 {
@@ -55,19 +56,90 @@ main > div#container > h6 {
 }
 
 main > div#container > h6.title {
-    top: 150px;
+    top: 110px;
 }
 main > div#container > h6.points {
-    top: 220px;
+    top: 175px;
 }
 
 main > section {
     margin-bottom: 15px;
+    padding: 10px
+}
+
+main > section#causes {
+    height: 140px;
+    margin-top: -25px;
+    margin-bottom: 40px;
+}
+
+main > section#outlets {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid #2d8141;
+    border-bottom: 1px solid #2d8141;
+    -webkit-box-shadow: -2px 0px 9px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -2px 0px 9px 0px rgba(0,0,0,0.25);
+    box-shadow: -2px 0px 9px 0px rgba(0,0,0,0.25);
+}
+
+main > section#outlets > div.row {
+    margin-bottom: 20px;
+}
+
+main > section#outlets > div > div {
+    margin: 20px 0;
+}
+
+main > section#outlets > div > div > div.col-sm > img {
+    height: 50px;
+    width: 50px
+}
+
+main > section#friends > div.container > div.row {
+    text-align: left;
 }
 
 main > section > h6 {
     font-weight: bold;
+    margin: 10px 0 25px 0 ;
+    color: rgb(224, 255, 225)
 }
+
+h7 {
+    margin-top: -5px;
+    font-size: 9pt;
+    display: block
+}
+
+button.charity-donate {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    border-radius: 8px;
+    height: 90px;
+    width: 90px;
+    background-size: contain;
+}
+
+button.charity-donate:hover {
+    margin-left: -2px;
+    margin-top: -2px;
+    cursor: pointer;
+    -webkit-box-shadow: 3px 3px 9px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 3px 3px 9px 0px rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 9px 0px rgba(0,0,0,0.4);
+}
+button.charity-donate:active {
+    margin-left: 2px;
+    margin-top: 2px;
+    -webkit-box-shadow: -2px 0px 9px 0px rgba(0,0,0,0);
+    -moz-box-shadow: -2px 0px 9px 0px rgba(0,0,0,0);
+    box-shadow: -2px 0px 9px 0px rgba(0,0,0,0);
+}
+
+button#mind { background-image: url("/img/mind.jpg") }
+button#shelter { background-image: url("/img/shelter.jpg") }
 
 div.row {
     text-align: center;
@@ -78,3 +150,7 @@ div.row img {
     border-radius: 15px;
     margin-bottom: 10px;
 }
+
+#hugh > .progressbar-text { left: 45% !important; }
+#julia > .progressbar-text { left: 95% !important; }
+#tamran > .progressbar-text { left: 65% !important; }

@@ -1,5 +1,5 @@
 <header>
-    <img src="/img/logog.png" alt="Good Mark" width="100px"/>
+    <img src="/img/logo.png" alt="Good Mark" width="100px"/>
 </header>
 
 <main>
@@ -9,17 +9,15 @@
     </div>
 
     <section id="causes">
-        <h6>This Months Causes</h6>
-
         <div class="container">
             <div class="row">
                 <div class="col-sm">
                     <h6>Mind</h6>
-                    <img src="/img/mind.jpg" width="100px">
+                    <button id="mind" class="charity-donate" onclick="console.log('mind')"></button>
                 </div>
                 <div class="col-sm">
                     <h6>Shelter</h6>
-                    <img src="/img/shelter.jpg" width="100px">
+                    <button id="shelter" class="charity-donate" onclick="console.log('shelter')"></button>
                 </div>
             </div>
         </div>
@@ -31,46 +29,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <img src="/img/wholefoods.jpg" width="75px">
+                    <img src="/img/wholefoods.jpg">
                     <h6><strong>143 points</strong></h6>
-                    <h6>£64.40 spent</h6>
+                    <h7>£64.40 spent</h6>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/lush.jpg" width="75px">
+                    <img src="/img/lush.jpg">
                     <h6><strong>64 points</strong></h6>
-                    <h6>£35.35 spent</h6>
+                    <h7>£35.35 spent</h6>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/newbalance.png" width="75px">
+                    <img src="/img/newbalance.jpg">
                     <h6><strong>56 points</strong></h6>
-                    <h6>£42.47 spent</h6>
+                    <h7>£42.47 spent</h6>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/chillys.jpg" width="75px">
+                    <img src="/img/chillys.jpg">
                     <h6><strong>35 points</strong></h6>
-                    <h6>£25.47 spent</h6>
+                    <h7>£25.47 spent</h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm">
-                    <img src="/img/costa.png" width="75px">
+                    <img src="/img/costa.png">
                     <h6><strong>143 points</strong></h6>
-                    <h6>£64.40 spent</h6>
+                    <h7>£64.40 spent</h6>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/otherstories.jpg" width="75px">
+                    <img src="/img/otherstories.jpg">
                     <h6><strong>64 points</strong></h6>
-                    <h6>£35.35 spent</h6>
+                    <h7>£35.35 spent</h6>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/waitrose.jpg" width="75px">
+                    <img src="/img/waitrose.jpg">
                     <h6><strong>56 points</strong></h6>
-                    <h6>£42.47 spent</h6>
+                    <h7>£42.47 spent</h6>
                 </div>
                 <div class="col-sm">
-                    <img src="/img/fairtrade.png" width="75px">
+                    <img src="/img/fairtrade.png">
                     <h6><strong>35 points</strong></h6>
-                    <h6>£25.47 spent</h6>
+                    <h7>£25.47 spent</h6>
                 </div>
             </div>
         </div>
@@ -81,24 +79,39 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-2">
                     <img src="/img/jackson.jpg" width="75px">
-                    <h6>Jackson</h6>
                 </div>
-                <div class="col-sm">429 points</div>
+                <div class="col-sm-10">
+                    <h6>Hugh</h6>
+                    <div id="hugh"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="/img/julia.jpg" width="75px">
+                </div>
+                <div class="col-sm-10">
+                    <h6>Julia</h6>
+                    <div id="julia"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="/img/tamran.jpg" width="75px">
+                </div>
+                <div class="col-sm-10">
+                    <h6>Tamran</h6>
+                    <div id="tamran"></div>
+                </div>
             </div>
         </div>
     </section>
 </main>
 
 <script>
-    // progressbar.js@1.0.0 version is used
-    // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-
-    var bar = new ProgressBar.Circle(container, {
+    var user = new ProgressBar.Circle(container, {
         color: '#fff',
-        // This has to be the same size as the maximum width to
-        // prevent clipping
         strokeWidth: 4,
         trailWidth: 1,
         easing: 'easeInOut',
@@ -119,11 +132,14 @@
             } else {
                 circle.setText(value);
             }
-
         }
     });
-    bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-    bar.text.style.fontSize = '2rem';
+    user.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    user.text.style.fontSize = '2rem';
+    user.animate(0.67);  // Number from 0.0 to 1.0
 
-    bar.animate(0.67);  // Number from 0.0 to 1.0
+    new ProgressBar.Line('#hugh', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('450 points')}}).animate(0.32);
+    new ProgressBar.Line('#julia', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('873 points')}}).animate(0.87);
+    new ProgressBar.Line('#tamran', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('628 points')}}).animate(0.51);
+
 </script>
