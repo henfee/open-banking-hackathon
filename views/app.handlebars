@@ -1,6 +1,3 @@
-
-{{data}}
-
 <header>
     <img src="/img/logo.png" alt="Good Mark" width="100px"/>
 </header>
@@ -28,6 +25,21 @@
 
     <section id="outlets">
         <h6>Your Spend</h6>
+
+      <table width="100%">
+        <thead>
+          <th width="50%">Account ID</th>
+          <th width="50%">Amount</th>
+        </thead>
+        <tbody>
+          {{#each helpers.data}}
+            <tr>
+              <td> {{this.AccountId}} </td>
+              <td> £{{this.Amount.Amount}} </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
 
         <div class="container">
             <div class="row">
