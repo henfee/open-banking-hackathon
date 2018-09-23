@@ -76,7 +76,7 @@ app.get('/app', async (req, res) => {
     Transaction.forEach(function(t) {
         vendors[t.MerchantDetails.MerchantName] += parseFloat(t.Amount.Amount)
     });
-
+    console.log(vendors)
     res.render('app', {
             helpers: {
                 title: function () { return 'Good Mark.'; },

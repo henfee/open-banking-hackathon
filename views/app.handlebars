@@ -38,6 +38,11 @@
                 <div class="col-sm">
                     <img src="/img/wholefoods.jpg"/>
                     <h6><strong>143 points</strong></h6>
+                    <h7>£{{{ helpers.vendors }}} spent</h6>
+                </div>
+                <div class="col-sm">
+                    <img src="/img/wholefoods.jpg"/>
+                    <h6><strong>143 points</strong></h6>
                     <h7>£64.40 spent</h6>
                     <br>
                     <br>
@@ -203,5 +208,5 @@
     new ProgressBar.Line('#hugh', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('450 points')}}).animate(0.32);
     new ProgressBar.Line('#julia', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('873 points')}}).animate(0.87);
     new ProgressBar.Line('#tamran', {easing: 'easeInOut', color: '#fff', from: { color: '#fff', width: 1 }, to: { color: '#fff', width: 4 }, step: function(s, i) {i.setText('628 points')}}).animate(0.51);
-
+    console.log({{{ helpers.vendors }}})
 </script>
