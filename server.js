@@ -4,7 +4,7 @@ const mongo = require('mongodb').MongoClient;
 const app = express();
 const port = 1993;
 const exphbs = require('express-handlebars');
-const authenticate = require('./authenticate');
+const { getDataz, exchangeCode, authorize }  = require('./controller');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -23,14 +23,29 @@ var getCompanies = function(name) {
 };
 
 app.get('/authorize', async (req, res) => {
-
-    const URL = await authenticate();
+    const URL = await authorize();
     res.redirect(URL);
+});
+
+app.get('/transactions', async (req, res) => {
+
+    const data = await getDataz();
+
+    res.send(data);
+});
+
+app.get('/exchangeCode', async (req, res) => {
+    const { code, id_token, state } = req.query;
+    console.log(code, id_token, state);
+
+    await exchangeCode(code);
+
+    res.redirect('/transactions');
 });
 
 
 app.get('/callback', async (req, res) => {
-    res.send("Wassssup");
+    res.render('callback')
 });
 
 app.get('/login', async (req, res) => {
