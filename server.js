@@ -5,6 +5,7 @@ const app = express();
 const port = 1993;
 const exphbs = require('express-handlebars');
 const { getDataz, exchangeCode, authorize }  = require('./controller');
+const moment = require('moment');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -52,7 +53,23 @@ app.get('/login', async (req, res) => {
 
 app.get('/app', async (req, res) => {
 
-    const { Data: { Transaction }} = await getDataz();
+    let Transaction;
+
+    try  {
+      const data = await getDataz();
+      Transaction = data.Data.Transaction;
+    } catch(e) {
+      Transaction = [];
+    }
+
+    Transaction = Transaction.map( transaction => {
+        const random = Math.ceil((Math.random() * 2));
+        return {
+          ...transaction,
+          BookingDateTime: moment(transaction.BookingDateTime).format('Do MMM YYYY'),
+          goodMark: random === 2
+        }
+    });
 
     console.log(Transaction)
 
